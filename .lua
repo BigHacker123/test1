@@ -4493,10 +4493,10 @@ do
               objects = {};
               text = {
                 {"beamed.solutions", true},
-                {"V"..getgenv().Config.Version, true},
                 {getgenv().luaguardvars.DiscordName, false},
-                {'0 fps', true},
                 {'0ms', true},
+                {'0 fps', true},
+                {"V"..getgenv().Config.Version, true},
               };
               lock = 'custom';
               position = newUDim2(0,0,0,0);
@@ -4620,7 +4620,7 @@ do
           local settingsTab = menu:AddTab('Settings', 999);
           local configSection = settingsTab:AddSection('Config', 2);
           local mainSection = settingsTab:AddSection('Main', 1);
-          local creditsSection = settingsTab:AddSection('Credits', 2);
+          local creditsSection = settingsTab:AddSection('Credits', 1);
           creditsSection:AddSeparator({text = 'Owner'});
           creditsSection:AddText({text = "-[beamed]-#9395"})
 
@@ -4739,7 +4739,7 @@ do
             for _,v in next, library.themes do
               table.insert(themeStrings, v.name)
             end
-            local themeSection = settingsTab:AddSection('Theme', 1);
+            local themeSection = settingsTab:AddSection('Theme', 2);
             local setByPreset = false
 
             themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStrings, callback = function(newTheme)
