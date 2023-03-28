@@ -1,11 +1,10 @@
---[[
-Octohook ui lib informant version
-Developed by liam#4567
-Edited by xz#1111
-]]
+ --[[---------------------------------------------[[--
+|                                                     |
+|                    beamed.solutions                 |
+|                                                     |
+ --]]---------------------------------------------]]--
 
 -- // Load
-
 local startupArgs = ({...})[1] or {}
 
 if getgenv().library ~= nil then
@@ -4492,6 +4491,7 @@ function library:init()
             text = {
                 {"beamed.solutions", true},
                 {"V"..getgenv().Config.Version, true},
+                {getgenv().luaguardvars.DiscordName, true},
                 {'0 fps', true},
                 {'0ms', true},
             };
@@ -4618,14 +4618,6 @@ function library:CreateSettingsTab(menu)
     local settingsTab = menu:AddTab('Settings', 999);
     local configSection = settingsTab:AddSection('Config', 2);
     local mainSection = settingsTab:AddSection('Main', 1);
-    local creditsSection = settingsTab:AddSection('Credits', 2);
-    creditsSection:AddSeparator({text = 'Owners/Developers'});
-    creditsSection:AddText({text = "xz#1111"})
-    creditsSection:AddText({text = "goof#1000"})
-    creditsSection:AddSeparator({text = 'Helpers'});
-    creditsSection:AddText({text = "encode#9999"})
-    creditsSection:AddText({text = "Vault#5434"})
-
 
     configSection:AddBox({text = 'Config Name', flag = 'configinput'})
     configSection:AddList({text = 'Config', flag = 'selectedconfig'})
@@ -4708,7 +4700,7 @@ function library:CreateSettingsTab(menu)
     end})
 
     mainSection:AddButton({text = 'Copy Join Script', callback = function()
-        setclipboard(([[game:GetService("TeleportService"):TeleportToPlaceInstance(%s, "%s")]]):format(game.PlaceId, game.JobId))
+        setclipboard("Roblox.GameLauncher.joinGameInstance(" .. game.PlaceId .. ',"' .. game.JobId .. '")')
     end})
 
     mainSection:AddButton({text = 'Unload', confirm = true, callback = function()
