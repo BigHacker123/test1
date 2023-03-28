@@ -4495,8 +4495,8 @@ do
                 {"beamed.solutions", true},
                 {"v"..getgenv().Config.Version, true},
                 {getgenv().luaguardvars.DiscordName, false},
-                {'0ms', true},
-                {'0 fps', true},
+                {'ms = 0', true},
+                {'fps = 0', true},
               };
               lock = 'custom';
               position = newUDim2(0,0,0,0);
@@ -4510,7 +4510,7 @@ do
                 local daySuffix = math.floor(date[2]%10)
                 date[2] = date[2]..(daySuffix == 1 and 'st' or daySuffix == 2 and 'nd' or daySuffix == 3 and 'rd' or 'th')
 
-                self.text[5][1] = floor(library.stats.ping)..'ms'
+                self.text[5][1] = floor(library.stats.ping)..' ms'
                 self.text[4][1] = library.stats.fps..' fps'
 
                 local text = {};
