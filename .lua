@@ -4503,7 +4503,7 @@ do
               };
               lock = 'custom';
               position = newUDim2(0,0,0,0);
-              refreshrate = 500;
+              refreshrate = 250;
             }
 
             function self.watermark:Update()
