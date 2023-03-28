@@ -4488,6 +4488,8 @@ do
           end
 
           -- Watermark
+          local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+          
           do
             self.watermark = {
               objects = {};
@@ -4497,6 +4499,7 @@ do
                 {getgenv().luaguardvars.DiscordName, false},
                 {'ms = 0', true},
                 {'fps = 0', true},
+                {''..GameName..'', true},
               };
               lock = 'custom';
               position = newUDim2(0,0,0,0);
