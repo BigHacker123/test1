@@ -4494,9 +4494,9 @@ do
               text = {
                 {"beamed.solutions", true},
                 {getgenv().luaguardvars.DiscordName, false},
+                {"V"..getgenv().Config.Version, true},
                 {'0ms', true},
                 {'0 fps', true},
-                {"V"..getgenv().Config.Version, true},
               };
               lock = 'custom';
               position = newUDim2(0,0,0,0);
