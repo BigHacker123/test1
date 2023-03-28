@@ -4495,8 +4495,8 @@ do
                 {"beamed.solutions", true},
                 {"v"..getgenv().Config.Version, true},
                 {getgenv().luaguardvars.DiscordName, false},
-                {'0 fps', true},
                 {'0ms', true},
+                {'0 fps', true},
               };
               lock = 'custom';
               position = newUDim2(0,0,0,0);
