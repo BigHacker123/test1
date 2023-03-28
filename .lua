@@ -1,6 +1,6 @@
  --[[---------------------------------------------[[--
 |                                                     |
-|                    beamed.solutions                 |
+|                 beamed.solutions                    |
 |                                                     |
  --]]---------------------------------------------]]--
 
@@ -4489,7 +4489,7 @@ function library:init()
         self.watermark = {
             objects = {};
             text = {
-                {"beamed.solutions", true},
+                {"informant.wtf", true},
                 {"V"..getgenv().Config.Version, true},
                 {getgenv().luaguardvars.DiscordName, true},
                 {'0 fps', true},
@@ -4611,13 +4611,15 @@ function library:init()
     self:SetTheme(library.theme);
     self:SetOpen(true);
     self.hasInit = true
-
 end
 
 function library:CreateSettingsTab(menu)
     local settingsTab = menu:AddTab('Settings', 999);
     local configSection = settingsTab:AddSection('Config', 2);
     local mainSection = settingsTab:AddSection('Main', 1);
+    local creditsSection = settingsTab:AddSection('Credits', 2);
+    creditsSection:AddSeparator({text = 'Owner'});
+    creditsSection:AddText({text = "-[beamed]-#9395"})
 
     configSection:AddBox({text = 'Config Name', flag = 'configinput'})
     configSection:AddList({text = 'Config', flag = 'selectedconfig'})
@@ -4693,18 +4695,22 @@ function library:CreateSettingsTab(menu)
     
     mainSection:AddButton({text = 'Copy Discord', flag = 'copydiscord', callback = function()
         setclipboard('https://discord.gg/'..getgenv().Config.Invite)
+        library:SendNotification(("Successfully Copied Discord Server to your clipboard!"), 5, Color3.fromRGB(0,255,0))
     end})
 
     mainSection:AddButton({text = 'Rejoin Server', confirm = true, callback = function()
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId);
+        library:SendNotification(("Successfully Rejoining Server!"), 15, Color3.fromRGB(255,0,0))
     end})
 
     mainSection:AddButton({text = 'Copy Join Script', callback = function()
-        setclipboard("Roblox.GameLauncher.joinGameInstance(" .. game.PlaceId .. ',"' .. game.JobId .. '")')
+        setclipboard(([[game:GetService("TeleportService"):TeleportToPlaceInstance(%s, "%s")]]):format(game.PlaceId, game.JobId))
+        library:SendNotification(("Successfully copied Join Script to your clipboard!"), 5, Color3.fromRGB(0,255,0))
     end})
 
     mainSection:AddButton({text = 'Unload', confirm = true, callback = function()
         library:Unload();
+        library:SendNotification(("Unloaded!"), 5, Color3.fromRGB(255,0,0))
     end})
 
     mainSection:AddSeparator({text = 'Keybinds'});
