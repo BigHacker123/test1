@@ -4757,9 +4757,23 @@ do
             end
             setByPreset = false
             end}):Select('Default');
+            
+    function library:UpdateColor(ColorType, ColorValue)
+    local ColorType = ColorType:lower()
+    --
+    theme[ColorType] = ColorValue
+    --
+    for Index, Value in pairs(library.colors) do
+        for Index2, Value2 in pairs(Value) do
+            if Value2 == ColorType then
+                Index[Index2] = theme[Value2]
+            end
+        end
+    end
+end
 
             return settingsTab;
           end
 
-          getgenv().library = library
-          return library
+        getgenv().library = library
+      return library
