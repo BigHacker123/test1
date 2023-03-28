@@ -4493,8 +4493,8 @@ do
               objects = {};
               text = {
                 {"beamed.solutions", true},
+                {"v"..getgenv().Config.Version, true},
                 {getgenv().luaguardvars.DiscordName, false},
-                {"V"..getgenv().Config.Version, true},
                 {'0ms', true},
                 {'0 fps', true},
               };
