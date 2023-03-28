@@ -58,8 +58,8 @@ local library = {
     ['notification'] = 1400;
   },
   stats = {
-    ['fps'] = 0;
     ['ping'] = 0;
+    ['fps'] = 0;
   };
   images = {
     ['gradientp90'] = 'https://raw.githubusercontent.com/portallol/luna/main/modules/gradient90.png';
@@ -4510,8 +4510,8 @@ do
                 local daySuffix = math.floor(date[2]%10)
                 date[2] = date[2]..(daySuffix == 1 and 'st' or daySuffix == 2 and 'nd' or daySuffix == 3 and 'rd' or 'th')
 
-                self.text[4][1] = library.stats.fps..' fps'
                 self.text[5][1] = floor(library.stats.ping)..'ms'
+                self.text[4][1] = library.stats.fps..' fps'
 
                 local text = {};
                 for _,v in next, self.text do
@@ -4591,8 +4591,8 @@ do
 
           local lasttick = tick();
           utility:Connection(runservice.RenderStepped, function(step)
-          library.stats.fps = floor(1/step)
           library.stats.ping = stats.Network.ServerStatsItem["Data Ping"]:GetValue()
+          library.stats.fps = floor(1/step)
           library.stats.sendkbps = stats.DataSendKbps
           library.stats.receivekbps = stats.DataReceiveKbps
 
